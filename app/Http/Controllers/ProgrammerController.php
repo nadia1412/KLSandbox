@@ -13,7 +13,7 @@ class ProgrammerController extends Controller
      */
     public function index()
     {
-        //
+       return \App\smsProgrammer::all();
     }
 
     /**
@@ -23,7 +23,12 @@ class ProgrammerController extends Controller
      */
     public function create()
     {
-        //
+        $data = new \App\smsProgrammer;
+		$data->id = 1;
+		$data->phone_number();
+		$data->message();
+		$data->save();
+
     }
 
     /**
