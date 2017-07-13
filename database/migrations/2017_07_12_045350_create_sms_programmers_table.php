@@ -14,7 +14,6 @@ class CreateSmsProgrammersTable extends Migration
     public function up()
     {
         Schema::create('sms_programmers', function (Blueprint $table) {
-            $table->increments('id');
 			$table->string('phone_number');
 			$table->string('message');
 			$table->string('token');
