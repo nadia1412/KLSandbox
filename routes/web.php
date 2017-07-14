@@ -23,7 +23,7 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::resources('/programmers', 'ProgrammerController');
+Route::resource('/programmers', 'ProgrammerController');
 
 Auth::routes();
 
