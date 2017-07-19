@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateSmsPasswordResetTable extends Migration
+class CreateSmsProgrammerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class UpdateSmsPasswordResetTable extends Migration
      */
     public function up()
     {
-        Schema::table('sms_password_resets', function (Blueprint $table) {
-            $table->string('message')->after('phone_number')->nullable();
+         Schema::create('smsProgrammer', function (Blueprint $table) {
+			$table->string('phone_number');
+			$table->string('token');
+			$table->string('message');
+			$table->timestamp('created_at')->nullable();
         });
     }
 
@@ -25,6 +28,6 @@ class UpdateSmsPasswordResetTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('smsProgrammer');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class ProgrammerController extends Controller
 {
     /**
@@ -24,11 +25,11 @@ class ProgrammerController extends Controller
     public function create()
     {
         $data = new \App\smsProgrammer;
-		$data->id = 1;
 		$data->phone_number();
-		$data->message();
+		$data->token = str_randomw(50);
+		$data->message = "You have reset your password";
+		$data->timestamp('created_at') = nullable();
 		$data->save();
-
     }
 
     /**

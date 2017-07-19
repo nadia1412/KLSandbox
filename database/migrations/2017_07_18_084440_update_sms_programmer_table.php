@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSmsProgrammersTable extends Migration
+class UpdateSmsProgrammerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,7 @@ class CreateSmsProgrammersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sms_programmers', function (Blueprint $table) {
-			$table->string('phone_number');
-			$table->string('message');
-			$table->string('token');
+        Schema::table('smsprogrammer', function (Blueprint $table) {
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ class CreateSmsProgrammersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sms_programmers');
+        //
     }
 }
