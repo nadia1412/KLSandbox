@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class smsProgrammer extends Model
 {
-	protected $table = 'smsprogrammer';
+	protected $table = 'smsProgrammer';
+	
+
 }

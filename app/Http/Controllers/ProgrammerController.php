@@ -14,7 +14,7 @@ class ProgrammerController extends Controller
      */
     public function index()
     {
-       return \App\smsProgrammer::all();
+      //return \App\smsProgrammer;
     }
 
     /**
@@ -24,12 +24,9 @@ class ProgrammerController extends Controller
      */
     public function create()
     {
-        $data = new \App\smsProgrammer;
-		$data->phone_number();
-		$data->token = str_randomw(50);
-		$data->message = "You have reset your password";
-		$data->timestamp('created_at') = nullable();
-		$data->save();
+		//call the view
+		return view('auth/passwords.email');
+
     }
 
     /**
@@ -40,7 +37,14 @@ class ProgrammerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		//$programmer = \App\smsProgrammer::where('phone_number' , $request->email)->first(); 
+		//$foundToken = $programmer->token;
+		//return $foundToken;
+
+		$data = new \App\smsProgrammer;
+		$data->phone_number = Input::get("phone_number");
+		$data->token = str_random(50);
+		$data->save();
     }
 
     /**
@@ -51,7 +55,7 @@ class ProgrammerController extends Controller
      */
     public function show($id)
     {
-        //
+        //return \App\smsProgrammer::find($id);
     }
 
     /**
@@ -62,7 +66,7 @@ class ProgrammerController extends Controller
      */
     public function edit($id)
     {
-        //
+     //
     }
 
     /**

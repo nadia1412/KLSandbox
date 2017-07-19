@@ -23,7 +23,13 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::resource('/programmers', 'ProgrammerController');
+Route::get('password/reset', 'ProgrammerController'); //crud
+//Route::get("store",'ProgrammerController@store');
+//Route::post("store",'ProgrammerController@store');
+// create - view ( , logic
+// read
+// update
+// delete 
 
 Auth::routes();
 
