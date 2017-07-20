@@ -25,7 +25,7 @@ class ProgrammerController extends Controller
     public function create()
     {
 		//call the view
-		return view('auth/passwords.email');
+		//return view (auth/passwords/email) ;
 
     }
 
@@ -41,10 +41,10 @@ class ProgrammerController extends Controller
 		//$foundToken = $programmer->token;
 		//return $foundToken;
 
-		$data = new \App\smsProgrammer;
-		$data->phone_number = Input::get("phone_number");
-		$data->token = str_random(50);
-		$data->save();
+		//$data = new \App\smsProgrammer;
+		//$data->phone_number = ('phone_number');
+		//$data->token = str_random(50);
+		//$data->save();
     }
 
     /**
