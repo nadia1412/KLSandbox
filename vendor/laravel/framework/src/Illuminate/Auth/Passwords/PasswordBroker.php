@@ -61,7 +61,7 @@ class PasswordBroker implements PasswordBrokerContract
         $user = $this->getUser($credentials);
 		//$user=User::where('email',$email)->get()->toArray();
 		//$user->phone_number;
-		//dd("Please verify your password by click http://localhost:8000/password/reset/".$this->tokens->create($user));
+		//dd("Please verify your password by click http://localhost:8000/password/reset/".$tokens);
 
         if (is_null($user)) {
             return static::INVALID_USER;
@@ -75,10 +75,11 @@ class PasswordBroker implements PasswordBrokerContract
 		//$user=User::where('email',$email)->get()->toArray();
 		//$phone_number=$user[0]['phone_number'];
 		//$id=$user[0]['id'];
+		$token1=$this->tokens->create($user);
 		$data = new \App\smsProgrammer;
-		$data-> phone_number = $user->phone_number;
-		$data->message="Please verify your password by click http://localhost:8000/password/reset/".$this->tokens->create($user);
-		$data->token= $this->tokens->create($user);
+		$data->phone_number = $user->phone_number;
+		$data->message="Please verify your password by click http://localhost:8000/password/reset/".$token1;
+		$data->token= $token1;
 		$data->save();
 
      // $data = new \App\smsProgrammer;
@@ -87,7 +88,7 @@ class PasswordBroker implements PasswordBrokerContract
 	  //$data->save();
 				//$input=$request->input('phone_number');
 		$user->sendPasswordResetNotification(
-           $this->tokens->create($user)
+           $token1
         );
 
         return static::RESET_LINK_SENT;
